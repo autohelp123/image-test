@@ -9,12 +9,20 @@ jobs:
         uses: actions/setup-node@v3
         with:
           node-version: "18.x"
-      - name: Setup Appwrite
-        uses: appwrite/setup-for-actions@v1
-        with:
-          endpoint: "${{ secrets.APPWRITE_ENDPOINT }}"
-          project: "${{ secrets.APPWRITE_PROJECT_ID }}"
-          key: "${{ secrets.APPWRITE_API_KEY }}"
+      - name: Install appwrite CLI
+        run: curl -sL https://appwrite.io/cli/install.sh | bash
+      - name: Setup Appwrite CLI
+        run: \
+          appwrite client \
+          --endpoint ${{ secrets.APPWRITE_ENDPOINT }} \
+          --projectId ${{ secrets.APPWRITE_PROJECT_ID }} \
+          --key ${{ secrets.APPWRITE_API_KEY }}
+      # - name: Setup Appwrite
+      #   uses: appwrite/setup-for-actions@v1
+      #   with:
+      #     endpoint: "${{ secrets.APPWRITE_ENDPOINT }}"
+      #     project: "${{ secrets.APPWRITE_PROJECT_ID }}"
+      #     key: "${{ secrets.APPWRITE_API_KEY }}"
       - name: Install dependencies
         run: yarn --frozen-lockfile
       - name: Deploy appwrite
