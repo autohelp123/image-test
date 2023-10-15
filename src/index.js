@@ -48,8 +48,7 @@ async function getSEOInfo(url) {
   }
 }
 
-// This is your Appwrite function
-// It's executed each time we get a request
+
 module.exports = async ({ req, res, log, error }) => {
   if (req.method !== "GET") return error("Request method not supported");
   const { url } = req.query;
