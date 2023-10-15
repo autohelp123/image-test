@@ -1,0 +1,14 @@
+{
+  "functions": [
+    {
+      "name": "image_analyser",
+      "entrypoint": "src/index.js",
+      "path": ".",
+      "enabled": true,
+      "ignore": ["node_modules", ".npm"],
+      "commands": "npm install",
+      "runtime": "node-18.0",
+      "$id": "image_analyser_v1"
+    }
+  ]
+}
