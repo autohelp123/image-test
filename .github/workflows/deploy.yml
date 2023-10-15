@@ -2,7 +2,7 @@ name: Deploy appwrite-node function
 on: [push]
 jobs:
   build:
-    runs-on: ubuntu-latest
+    runs-on: macOS-latest
     steps:
       - uses: actions/checkout@v4
       - name: Use Node.js
@@ -10,7 +10,10 @@ jobs:
         with:
           node-version: "18.x"
       - name: Install appwrite CLI
-        run: curl -sL https://appwrite.io/cli/install.sh | bash
+        run: |
+          brew tap appwrite/sdk-for-cli https://github.com/appwrite/sdk-for-cli && \
+          brew update && \
+          brew install --HEAD appwrite
       - name: Setup Appwrite CLI
         run: \
           appwrite client \
