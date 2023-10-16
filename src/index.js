@@ -48,9 +48,11 @@ async function getSEOInfo(url) {
   }
 }
 
-
 module.exports = async ({ req, res, log, error }) => {
-  if (req.method !== "GET") return error("Request method not supported");
+  if (req.method !== "GET") {
+    return error("Request method not supported");
+  }
+  
   const { url } = req.query;
 
   const info = await getSEOInfo(url);
