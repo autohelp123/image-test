@@ -21,4 +21,4 @@ jobs:
       - name: Install dependencies
         run: yarn --frozen-lockfile
       - name: Deploy appwrite
-        run: appwrite deploy function --functionId image_analyser_v1
+        run: appwrite deploy function --functionId seo_analyzer_v1
