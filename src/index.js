@@ -59,5 +59,6 @@ module.exports = async ({ req, res, log, error }) => {
   if (!info) return error("failed to get SEO information");
 
   log("Executed!");
+  
   return res.json(info);
 };
