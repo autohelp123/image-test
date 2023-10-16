@@ -43,7 +43,7 @@ async function getSEOInfo(url) {
       externalLinks,
     };
   } catch (error) {
-    console.error("Error:", error);
+    console.error("Error: ", error);
     return null;
   }
 }

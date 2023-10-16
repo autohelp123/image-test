@@ -2,7 +2,7 @@ name: Deploy appwrite-node function
 on: [push]
 jobs:
   build:
-    runs-on: macOS-latest
+    runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
       - name: Use Node.js
@@ -18,12 +18,6 @@ jobs:
           --endpoint ${{ secrets.APPWRITE_ENDPOINT }} \
           --projectId ${{ secrets.APPWRITE_PROJECT_ID }} \
           --key ${{ secrets.APPWRITE_API_KEY }}
-      # - name: Setup Appwrite
-      #   uses: appwrite/setup-for-actions@v1
-      #   with:
-      #     endpoint: "${{ secrets.APPWRITE_ENDPOINT }}"
-      #     project: "${{ secrets.APPWRITE_PROJECT_ID }}"
-      #     key: "${{ secrets.APPWRITE_API_KEY }}"
       - name: Install dependencies
         run: yarn --frozen-lockfile
       - name: Deploy appwrite
